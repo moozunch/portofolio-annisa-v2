@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ open: false }">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Annisa Putri Aprilia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800"  style="font-family: 'Poppins', sans-serif;">
+
+<header class="bg-white border-b shadow">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold">Annisa</h1>
+        <button @click="open = !open" class="sm:hidden">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"/>
+                <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <nav class="hidden sm:flex space-x-6">
+            <a href="#about" class="hover:text-blue-600">About</a>
+            <a href="#projects" class="hover:text-blue-600">Projects</a>
+            <a href="#contact" class="hover:text-blue-600">Contact</a>
+        </nav>
+    </div>
+    <!-- Mobile Nav -->
+    <nav x-show="open" class="sm:hidden px-4 py-2 space-y-2 bg-white shadow">
+        <a href="#about" class="block hover:text-blue-600">About</a>
+        <a href="#projects" class="block hover:text-blue-600">Projects</a>
+        <a href="#contact" class="block hover:text-blue-600">Contact</a>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container mx-auto px-4 py-8 space-y-20">
+
+    <section id="hero" class="text-center">
+        <div class="min-h-screen bg-white flex items-center justify-center p-6">
+            <div class="max-w-4xl w-full text-center relative">
+                <h1 class="text-8xl sm:text-7xl font-extrabold text-blue-700 relative inline-block">
+                    Annisa Putri<br/>
+                    Aprilia
+
+                    <span class="absolute top-40 left-[60%] -rotate-6 bg-blue-600 text-white text-lg px-6 py-2 font-semibold shadow-md">Portofolio</span>
+                </h1>
+            </div>
+        </div>
+
+        <p class="text-lg text-gray-600">A passionate developer/designer.</p>
+    </section>
+
+    <section id="about">
+        <h3 class="text-2xl font-semibold mb-4">About Me</h3>
+        <p class="text-gray-700">Junior Develover from Indonesia. I believe that a well bla bla bla. Give up on medical students dream to pursuing computer Science but still has the same vision to create an efficient tools and save so many lifes.</p>
+    </section>
+
+    <section id="projects" class="py-12 px-4 bg-gray-50 font-poppins">
+        <h3 class="text-3xl font-bold mb-8 text-center">Projects</h3>
+        <div class="max-w-4xl mx-auto">
+
+            <!-- Project Card -->
+            <div x-data="{ open: false, slide: 0, images: [
+              'assets/img/projects/carousels/donday/login.jpg',
+              'assets/img/projects/carousels/donday/profile_requirements.jpg',
+              'assets/img/projects/carousels/donday/main.jpg',
+              'assets/img/projects/carousels/donday/profile settings.jpg',
+              'assets/img/projects/carousels/donday/nearby.jpg',
+              'assets/img/projects/carousels/donday/bloodhub.jpg',
+              'assets/img/projects/carousels/donday/send_to_forum.jpg',
+              'assets/img/projects/carousels/donday/chat.jpg'
+            ] }" class="bg-white border rounded-xl shadow-md p-6 group mb-4">
+                <img @click="open = true" src="assets/img/projects/thumbnails/DONDAY.jpg" alt="Thumbnail" class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
+                <h4 class="text-xl font-bold mt-4 text-blue-700">Donday</h4>
+                <p>Donday is a platform designed to connect users seeking donors with donors. It is equipped with an in-app chat and an integrated forum feature.</p>
+                <p class="text-sm text-gray-600 italic mt-1">🏆 3rd Place - DSC Solve 2024</p>
+                <p class="text-sm text-gray-600">Role: UI/UX Designer & Front-End Developer</p>
+
+                <a href="https://github.com/moozunch/donday" target="_blank" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                    View on GitHub
+                </a>
+
+                <div
+                        x-show="open"
+                        x-transition
+                        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
+                >
+                    <div class="bg-white p-4 rounded-xl relative max-w-sm w-[90%]">
+                        <!-- Close Button -->
+                        <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl">&times;</button>
+
+                        <!-- Carousel -->
+                        <div class="relative">
+                            <img :src="images[slide]" class="w-full rounded object-contain h-[480px] max-h-[80vh]" alt="Screenshot" />
+
+                            <!-- Prev Button -->
+                            <button @click="slide = (slide - 1 + images.length) % images.length" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
+                                ◀
+                            </button>
+
+                            <!-- Next Button -->
+                            <button @click="slide = (slide + 1) % images.length" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
+                                ▶
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <!--Project 2-->
+            <div x-data="{ open: false, slide: 0, images: [
+            'img1.jpg', 'img2.jpg', 'img3.jpg'
+            ] }" class="bg-white border rounded-xl shadow-md p-6 group mb-4">
+                <img @click="open = true" src="img1.jpg" alt="Screenshot" class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
+                <h4 class="text-xl font-bold mt-4 text-blue-700">Madhumeha</h4>
+                <p>Madhumeha is a cross-platform mobile application developed with Flutter that utilizes a TensorFlow Lite neural network model to predict the risk of diabetes based on comprehensive health and lifestyle data. The app allows users to input 39 distinct features ranging from personal and medical history to symptoms and lab test results and returns an intelligent prediction about their diabetes risk.</p>
+                <p class="text-sm text-gray-600 italic mt-1">Self-Initiated/Passion Projects </p>
+                <p class="text-sm text-gray-600">Role: Full Stack Developer, ML Engineer</p>
+
+                <!-- CTA Button -->
+                <a href="https://github.com/username/donday" target="_blank" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                    View on GitHub
+                </a>
+
+                <!-- Modal -->
+                <div
+                        x-show="open"
+                        x-transition
+                        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
+                >
+                    <div class="bg-white p-4 rounded-xl relative max-w-sm w-[90%]">
+                        <!-- Close Button -->
+                        <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl">&times;</button>
+
+                        <!-- Carousel -->
+                        <div class="relative">
+                            <img :src="images[slide]" class="w-full rounded object-contain h-[480px] max-h-[80vh]" alt="Screenshot" />
+
+                            <!-- Prev Button -->
+                            <button @click="slide = (slide - 1 + images.length) % images.length" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
+                                ◀
+                            </button>
+
+                            <!-- Next Button -->
+                            <button @click="slide = (slide + 1) % images.length" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
+                                ▶
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Project 3-->
+            <div x-data="{ open: false, slide: 0, images: [
+            'assets/img/projects/carousels/kialog/landing.png',
+            'assets/img/projects/carousels/kialog/our_value.png',
+            'assets/img/projects/carousels/kialog/meet_the_team.png',
+            'assets/img/projects/carousels/kialog/forum.png',
+            'assets/img/projects/carousels/kialog/forum_based_on_topics.png',
+            'assets/img/projects/carousels/kialog/chatting.png',
+            'assets/img/projects/carousels/kialog/account_settings.png',
+            ] }" class="bg-white border rounded-xl shadow-md p-6 group mb-4">
+                <img @click="open = true" src="assets/img/projects/thumbnails/KIALOG.jpg" alt="Screenshot" class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
+                <h4 class="text-xl font-bold mt-4 text-blue-700">Kialog</h4>
+                <p>Kialog is a web-based platform developed to foster peer-to-peer learning and community building among students. It features a community-driven forum and integrated chat, enabling users to ask questions, share insights, and support one another in their academic journey. Designed with a focus on simplicity and collaboration, Kialog reflects my passion for creating meaningful digital tools that solve real problems in education.
+                </p>
+                <p class="text-sm text-gray-600 italic mt-1">Team Project</p>
+                <p class="text-sm text-gray-600">Role: Full-Stack Developer (per feature)</p>
+
+                <a href="https://github.com/moozunch/kialog-code.git" target="_blank" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                    View on GitHub
+                </a>
+
+                <div
+                        x-show="open"
+                        x-transition
+                        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+                    <div class="bg-white p-4 rounded-xl relative max-w-sm w-[90%]">
+                        <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl">&times;</button>
+
+                        <div class="relative">
+                            <img :src="images[slide]" class="w-full rounded object-contain h-[480px] max-h-[80vh]" alt="Screenshot" />
+
+                            <button @click="slide = (slide - 1 + images.length) % images.length" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
+                                ◀
+                            </button>
+                            <button @click="slide = (slide + 1) % images.length" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
+                                ▶
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Project 4-->
+            <div class="bg-white border rounded-xl shadow-md p-6 group mb-4">
+                <!-- Thumbnail -->
+                <img src="assets/img/projects/thumbnails/MODELS.jpg"
+                     alt="Screenshot"
+                     class="w-full h-64 object-cover rounded">
+                <h4 class="text-xl font-bold mt-4 text-blue-700">Diabetes Risk Predictor</h4>
+                <p>This project is the Machine Learning model for my diabetes risk predictor project MADHUMEHA. Built with Python and TensorFlow Lite.</p>
+                <p class="text-sm text-gray-600 italic mt-1">Self Initiated Project</p>
+                <p class="text-sm text-gray-600">Role: ML Engineer</p>
+
+                <a href="https://github.com/moozunch/Neural-Networks-Diabetes-Binary-Classification.git"
+                   target="_blank"
+                   class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                    View on GitHub
+                </a>
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+
+    <section id="contact">
+        <h3 class="text-2xl font-semibold mb-4">Contact</h3>
+        <p>Contact me at <a href="mailto:kamu@email.com" class="text-blue-600 underline">annisaheree@email.com</a></p>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-gray-100 text-center py-4 mt-10 text-sm text-gray-600">
+    &copy; 2025 Annisa Putri Aprilia. All rights reserved.
+</footer>
+
+</body>
+</html>
