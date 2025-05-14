@@ -12,15 +12,14 @@
     <style>
         body {
             font-family: 'Satoshi', sans-serif;
-        }
-        .element {
             overflow: auto;
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scroll-behavior: smooth;
         }
 
-        .element::-webkit-scrollbar {
-            display: none;  /* Chrome, Safari, Opera */
+        body::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -61,7 +60,7 @@
 </header>
 
 <!-- HERO -->
-<section id="hero" class="bg-[#eae7e2] text-[#1b1b1c] py-16 px-56 mt-16">
+<section id="hero" class="bg-[#eae7e2] text-[#1b1b1c] py-16 px-56 mt-16 mx-24">
     <!-- Heading -->
     <div class="text-left mb-12">
         <h1 class="hero-text text-4xl md:text-5xl text-[#1b1b1c]">
@@ -69,7 +68,7 @@
             <br class="hidden md:block" />
         </h1>
         <h2 class="text-xl text-[#1b1b1c]" >
-            > A passionate junior developer with interest in
+            > a passionate junior developer with interest in
             <span style="font-family: 'Playfair Display', serif; font-style: italic;">Machine Learning</span>
             and
             <span style="font-family: 'Playfair Display', serif; font-style: italic;">Software Development</span>
@@ -131,7 +130,10 @@
 
 <!-- PROJECTS -->
 <section id="projects" class="px-6 py-12 bg-[#eae7e2]">
-    <h3 class="text-3xl font-semibold mb-8 text-center text-[#1b1b1c]">Projects</h3>
+    <h3 class="text-4xl mb-8 text-center text-[#1b1b1c]">Projects</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+    </div>
 
     <!-- Project 1: Donday -->
     <div x-data="{ open: false, slide: 0, images: [
@@ -144,7 +146,7 @@
               'assets/img/projects/carousels/donday/send_to_forum.jpg',
               'assets/img/projects/carousels/donday/chat.jpg'
     ] }"
-         class="bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
+         class="project-card bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
         <img @click="open = true" src="assets/img/projects/thumbnails/DONDAY.jpg" alt="Donday thumbnail"
              class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
         <h4 class="text-xl font-bold mt-4 text-[#1b1b1c]">Donday</h4>
@@ -152,8 +154,9 @@
         <p class="text-sm italic text-gray-600 mt-1">🏆 3rd Place - DSC Solve 2024</p>
         <p class="text-sm text-gray-600">Role: UI/UX Designer & Front-End Developer</p>
         <a href="https://github.com/moozunch/donday" target="_blank"
-           class="inline-block mt-4 px-4 py-2 bg-[#1b1b1c] text-[#eae7e2] rounded hover:bg-[#272727]  border-gray-700 transition">
+           class="inline-flex items-center gap-1 text-sm text-[#1b1b1c] mt-2 group transition-all duration-300">
             View on GitHub
+            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-1 transform transition-all duration-300">→</span>
         </a>
 
         <!-- Modal Carousel -->
@@ -175,7 +178,7 @@
     <div x-data="{ open: false, slide: 0, images: [
     'assets/img/projects/carousels/donday/login.jpg', 'assets/img/projects/carousels/donday/forum.jpg', 'assets/img/projects/carousels/donday/chat.jpg'
     ] }"
-         class="bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
+         class="project-card bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
         <img @click="open = true" src="assets/img/projects/thumbnails/DONDAY.jpg" alt="Donday thumbnail"
              class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
         <h4 class="text-xl font-bold mt-4 text-[#1b1b1c]">Madhumeha</h4>
@@ -183,8 +186,9 @@
         <p class="text-sm italic text-gray-600 mt-1">Self-Initiated/Passion Projects </p>
         <p class="text-sm text-gray-600">Role: Full Stack Developer, ML Engineer</p>
         <a href="https://github.com/moozunch/donday" target="_blank"
-           class="inline-block mt-4 px-4 py-2 text-white bg-[#1b1b1c] text-[#eae7e2] rounded hover:bg-[#272727] transition">
+           class="inline-flex items-center gap-1 text-sm text-[#1b1b1c] mt-2 group transition-all duration-300">
             View on GitHub
+            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-1 transform transition-all duration-300">→</span>
         </a>
 
         <!-- Modal Carousel -->
@@ -212,16 +216,17 @@
             'assets/img/projects/carousels/kialog/chatting.png',
             'assets/img/projects/carousels/kialog/account_settings.png',
     ] }"
-         class="bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
+         class="project-card bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
         <img @click="open = true" src="assets/img/projects/thumbnails/KIALOG.jpg" alt="Donday thumbnail"
              class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
         <h4 class="text-xl font-bold mt-4 text-[#1b1b1c]">Kialog</h4>
-        <p class = text-[#1b1b1c]>Kialog is a web-based platform developed to foster peer-to-peer learning and community building among students. It features a community-driven forum and integrated chat, enabling users to ask questions, share insights, and support one another in their academic journey. Designed with a focus on simplicity and collaboration, Kialog reflects my passion for creating meaningful digital tools that solve real problems in education.</p>
+        <p class = "text-[#1b1b1c]">Kialog is a web-based platform developed to foster peer-to-peer learning and community building among students. It features a community-driven forum and integrated chat, enabling users to ask questions, share insights, and support one another in their academic journey. Designed with a focus on simplicity and collaboration, Kialog reflects my passion for creating meaningful digital tools that solve real problems in education.</p>
         <p class="text-sm italic text-gray-600 mt-1">Team Project</p>
         <p class="text-sm text-gray-600">Role: Full-Stack Developer (per feature)</p>
         <a href="https://github.com/moozunch/kialog-code.git" target="_blank"
-           class="inline-block mt-4 px-4 py-2 bg-[#1b1b1c] text-[#eae7e2] rounded hover:bg-[#272727] transition">
+           class="inline-flex items-center gap-1 text-sm text-[#1b1b1c] mt-2 group transition-all duration-300">
             View on GitHub
+            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-1 transform transition-all duration-300">→</span>
         </a>
 
         <!-- Modal Carousel -->
@@ -240,7 +245,7 @@
     </div>
 
     <!-- Project 4: Diabetes Risk Prector Machine Learning Model -->
-    <div class="bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
+    <div class="project-card bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
         <img src="assets/img/projects/thumbnails/MODELS.jpg"
              alt="Screenshot"
              class="w-full h-64 object-cover rounded">
@@ -249,8 +254,9 @@
         <p class="text-sm italic text-gray-600 mt-1">Self-Initiated Project</p>
         <p class="text-sm text-gray-600">Role: ML Engineer</p>
         <a href="https://github.com/moozunch/Neural-Networks-Diabetes-Binary-Classification.git" target="_blank"
-           class="inline-block mt-4 px-4 py-2 bg-[#1b1b1c] text-[#eae7e2] rounded hover:bg-[#272727] transition">
+           class="inline-flex items-center gap-1 text-sm text-[#1b1b1c] mt-2 group transition-all duration-300">
             View on GitHub
+            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-1 transform transition-all duration-300">→</span>
         </a>
     </div>
 
@@ -409,7 +415,7 @@
     const style = document.createElement("style");
     style.innerHTML = `
   .char {
-    color: #4b5563; /* gray-600 */
+    color: #9ca3af; /* gray-400 */
     display: inline-block;
     white-space: pre;
   }
@@ -451,5 +457,53 @@
     setInterval(updateClock, 1000);
     updateClock();
 </script>
+
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".project-card", {
+        scrollTrigger: {
+            trigger: ".project-card",
+            start: "top 85%",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power3.out",
+        stagger: 0.2 // muncul satu per satu
+    });
+
+    gsap.utils.toArray('.project-card').forEach((card, i) => {
+        gsap.to(card, {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power3.out",
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: card,
+                start: "top 90%",
+                toggleActions: "play none none none",
+            }
+        });
+    });
+    gsap.utils.toArray('.project-card').forEach((card, i) => {
+        gsap.to(card, {
+            y: 30,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power3.out",
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: card,
+                start: "top 90%",
+                toggleActions: "play none none none",
+            }
+        });
+    });
+</script>
+
+
 
 </html>
