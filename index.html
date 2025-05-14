@@ -3,67 +3,138 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portofolio Annisa Putri Aprilia</title>
+    <title>Annisa Putri Aprilia - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="bg-white text-gray-800"  style="font-family: 'Poppins', sans-serif;">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Satoshi', sans-serif;
+        }
+        .element {
+            overflow: auto;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
 
-<header class="bg-white border-b shadow">
+        .element::-webkit-scrollbar {
+            display: none;  /* Chrome, Safari, Opera */
+        }
+    </style>
+</head>
+<body class="bg-[#eae7e2] text-gray-300" style="scroll-behavior: smooth; ">
+
+<div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#eae7e2] text-[#1b1b1c] text-4xl" style="font-family: 'Playfair Display', serif; font-style: italic;">
+    <h1 class="opacity-0" id="loader-heading">Annisa Putri Aprilia</h1>
+</div>
+
+
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+
+<!-- Header -->
+<header class="bg-[#eae7e2] border-b border-gray-700 shadow">
     <div class="container mx-auto p-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold">Annisa</h1>
-        <button @click="open = !open" class="sm:hidden">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <h1 class="text-xl text-[#1b1b1c]" style="font-family: 'Playfair Display', serif; font-style: italic;">Annisa</h1>
+        <button @click="open = !open" class="sm:hidden text-[#1b1b1c]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor">
                 <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M4 6h16M4 12h16M4 18h16"/>
                 <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M6 18L18 6M6 6l12 12"/>
             </svg>
         </button>
-        <nav class="hidden sm:flex space-x-6">
-            <a href="#about" class="hover:text-blue-600">About</a>
-            <a href="#projects" class="hover:text-blue-600">Projects</a>
-            <a href="#contact" class="hover:text-blue-600">Contact</a>
+        <nav class="hidden sm:flex space-x-6 text-gray-800">
+            <a href="#about" class="hover:text-[#1b1b1c]">About</a>
+            <a href="#projects" class="hover:text-[#1b1b1c]">Projects</a>
+            <a href="#contact" class="hover:text-[#1b1b1c]">Contact</a>
         </nav>
     </div>
-    <!-- Mobile Nav -->
-    <nav x-show="open" class="sm:hidden px-4 py-2 space-y-2 bg-white shadow">
-        <a href="#about" class="block hover:text-blue-600">About</a>
-        <a href="#projects" class="block hover:text-blue-600">Projects</a>
-        <a href="#contact" class="block hover:text-blue-600">Contact</a>
+    <nav x-show="open" class="sm:hidden px-4 py-2 space-y-2 bg-[#eae7e2] text-[#1b1b1c]">
+        <a href="#about" class="block hover:text-[#1b1b1c]">About</a>
+        <a href="#projects" class="block hover:text-[#1b1b1c]">Projects</a>
+        <a href="#contact" class="block hover:text-[#1b1b1c]">Contact</a>
     </nav>
 </header>
 
-<!-- MAIN CONTENT -->
-<main class="container mx-auto px-4 py-8 space-y-20">
+<!-- HERO -->
+<section id="hero" class="bg-[#eae7e2] text-[#1b1b1c] py-16 px-56 mt-16">
+    <!-- Heading -->
+    <div class="text-left mb-12">
+        <h1 class="hero-text text-4xl md:text-5xl text-[#1b1b1c]">
+            <span class="text-6xl text-bold" >Hi</span> I'm <span style="font-family: 'Playfair Display', serif; font-style: italic;">Annisa Putri Aprilia</span>,
+            <br class="hidden md:block" />
+        </h1>
+        <h2 class="text-xl text-[#1b1b1c]" >
+            > A passionate junior developer with interest in
+            <span style="font-family: 'Playfair Display', serif; font-style: italic;">Machine Learning</span>
+            and
+            <span style="font-family: 'Playfair Display', serif; font-style: italic;">Software Development</span>
+        </h2>
+    </div>
 
-    <section id="hero" class="text-center">
-        <div class="min-h-screen bg-white flex items-center justify-center p-6">
-            <div class="max-w-4xl w-full text-center relative">
-                <h1 class="text-8xl sm:text-7xl font-extrabold text-blue-700 relative inline-block">
-                    Annisa Putri<br/>
-                    Aprilia
+    <!-- Grid Content -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-16">
+        <!-- Left: Profile & Bio -->
+        <div class="flex items-start gap-6">
+            <!-- Profile Image -->
+            <img src="assets/img/profile.png" alt="Profile" class="w-24 h-24 md:w-28 md:h-28 rounded-full border-4 border-[#1b1b1c] shadow-lg" />
 
-                    <span class="absolute top-40 left-[60%] -rotate-6 bg-blue-600 text-white text-lg px-6 py-2 font-semibold shadow-md">Portofolio</span>
-                </h1>
+            <!-- Biography Text -->
+            <div>
+                <h2 class="text-xl mb-2" >Motivation</h2>
+                <p class="text-gray-800 leading-relaxed" style="font-family: 'Playfair Display', serif; font-style: italic;">
+                    what's done in the <span class="text-blue-700"> dark </span> will find a way to <span class="text-green-700"> shine </span>
+                </p>
+                <div class="font-serif italic text-[#1b1b1c] text-lg" >
+                    <span>Jakarta, Indonesia — <span id="clock">00:00:00</span></span>
+                </div>
             </div>
         </div>
 
-        <p class="text-lg text-gray-600">A passionate developer/designer.</p>
-    </section>
+        <!-- Right: Social Media -->
+        <div class="md:text-right text-left pr-24">
+            <h2 class="text-xl mb-4" >Let's connect</h2>
+            <div class="flex md:justify-end gap-6">
+                <a href="https://www.instagram.com/apictoresque/" class="text-[#1b1b1c] hover:text-pink-400">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/annisa-putri-aprilia-7070b9299/" class="text-[#1b1b1c] hover:text-blue-400">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a href="https://github.com/moozunch" class="text-[#1b1b1c] hover:text-gray-600">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="about">
-        <h3 class="text-2xl font-semibold mb-4">About Me</h3>
-        <p class="text-gray-700">Junior Develover from Indonesia. I believe that a well bla bla bla. Give up on medical students dream to pursuing computer Science but still has the same vision to create an efficient tools and save so many lifes.</p>
-    </section>
 
-    <section id="projects" class="py-12 px-4 bg-gray-50 font-poppins">
-        <h3 class="text-3xl font-bold mb-8 text-center">Projects</h3>
-        <div class="max-w-4xl mx-auto">
 
-            <!-- Project Card -->
-            <div x-data="{ open: false, slide: 0, images: [
+<!-- ABOUT -->
+<section id="about" class="min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-40">
+    <div class="relative inline-block mb-6">
+        <h3 class="text-6xl text-[#1b1b1c] py-10 text-semibold">About Me</h3>
+    </div>
+    <p class="about-text leading-relaxed text-4xl md:text-4xl opacity-0 px-10" id="about-text" style="font-family: 'Playfair Display', serif; font-style: italic;">
+        <span>A spark ignites the idea, but it's the feeling that brings it to life-</span>
+        <span>I gave up on a dream of being a medical student to pursue  Computer Science, </span>
+        <span>but my vision stays the same.</span>
+        <span>To create     efficient tools and save lives.</span>
+    </p>
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects" class="px-6 py-12 bg-[#eae7e2]">
+    <h3 class="text-3xl font-semibold mb-8 text-center text-[#1b1b1c]">Projects</h3>
+
+    <!-- Project 1: Donday -->
+    <div x-data="{ open: false, slide: 0, images: [
               'assets/img/projects/carousels/donday/login.jpg',
               'assets/img/projects/carousels/donday/profile_requirements.jpg',
               'assets/img/projects/carousels/donday/main.jpg',
@@ -72,90 +143,67 @@
               'assets/img/projects/carousels/donday/bloodhub.jpg',
               'assets/img/projects/carousels/donday/send_to_forum.jpg',
               'assets/img/projects/carousels/donday/chat.jpg'
-            ] }" class="bg-white border rounded-xl shadow-md p-6 group mb-4">
-                <img @click="open = true" src="assets/img/projects/thumbnails/DONDAY.jpg" alt="Thumbnail" class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
-                <h4 class="text-xl font-bold mt-4 text-blue-700">Donday</h4>
-                <p>Donday is a platform designed to connect users seeking donors with donors. It is equipped with an in-app chat and an integrated forum feature.</p>
-                <p class="text-sm text-gray-600 italic mt-1">🏆 3rd Place - DSC Solve 2024</p>
-                <p class="text-sm text-gray-600">Role: UI/UX Designer & Front-End Developer</p>
+    ] }"
+         class="bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
+        <img @click="open = true" src="assets/img/projects/thumbnails/DONDAY.jpg" alt="Donday thumbnail"
+             class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
+        <h4 class="text-xl font-bold mt-4 text-[#1b1b1c]">Donday</h4>
+        <p class="text-[#1b1b1c]">Donday is a platform designed to connect users seeking donors with donors. It is equipped with an in-app chat and an integrated forum feature.</p>
+        <p class="text-sm italic text-gray-600 mt-1">🏆 3rd Place - DSC Solve 2024</p>
+        <p class="text-sm text-gray-600">Role: UI/UX Designer & Front-End Developer</p>
+        <a href="https://github.com/moozunch/donday" target="_blank"
+           class="inline-block mt-4 px-4 py-2 bg-[#1b1b1c] text-[#eae7e2] rounded hover:bg-[#272727]  border-gray-700 transition">
+            View on GitHub
+        </a>
 
-                <a href="https://github.com/moozunch/donday" target="_blank" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                    View on GitHub
-                </a>
-
-                <div
-                        x-show="open"
-                        x-transition
-                        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
-                >
-                    <div class="bg-white p-4 rounded-xl relative max-w-sm w-[90%]">
-                        <!-- Close Button -->
-                        <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl">&times;</button>
-
-                        <!-- Carousel -->
-                        <div class="relative">
-                            <img :src="images[slide]" class="w-full rounded object-contain h-[480px] max-h-[80vh]" alt="Screenshot" />
-
-                            <!-- Prev Button -->
-                            <button @click="slide = (slide - 1 + images.length) % images.length" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
-                                ◀
-                            </button>
-
-                            <!-- Next Button -->
-                            <button @click="slide = (slide + 1) % images.length" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
-                                ▶
-                            </button>
-                        </div>
-                    </div>
+        <!-- Modal Carousel -->
+        <div x-show="open" x-transition class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+            <div class="bgbg-[#eae7e2] p-4 rounded-xl relative max-w-lg w-[90%]">
+                <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-white text-2xl">&times;</button>
+                <div class="relative">
+                    <img :src="images[slide]" class="w-full h-[480px] object-contain rounded">
+                    <button @click="slide = (slide - 1 + images.length) % images.length"
+                            class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600">◀</button>
+                    <button @click="slide = (slide + 1) % images.length"
+                            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600">▶</button>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <!-- Project 2: Madhumeha -->
+    <div x-data="{ open: false, slide: 0, images: [
+    'assets/img/projects/carousels/donday/login.jpg', 'assets/img/projects/carousels/donday/forum.jpg', 'assets/img/projects/carousels/donday/chat.jpg'
+    ] }"
+         class="bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
+        <img @click="open = true" src="assets/img/projects/thumbnails/DONDAY.jpg" alt="Donday thumbnail"
+             class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
+        <h4 class="text-xl font-bold mt-4 text-[#1b1b1c]">Madhumeha</h4>
+        <p class="text-[#1b1b1c]">Madhumeha is a cross-platform mobile application developed with Flutter that utilizes a TensorFlow Lite neural network model to predict the risk of diabetes based on comprehensive health and lifestyle data. The app allows users to input 39 distinct features ranging from personal and medical history to symptoms and lab test results and returns an intelligent prediction about their diabetes risk.</p>
+        <p class="text-sm italic text-gray-600 mt-1">Self-Initiated/Passion Projects </p>
+        <p class="text-sm text-gray-600">Role: Full Stack Developer, ML Engineer</p>
+        <a href="https://github.com/moozunch/donday" target="_blank"
+           class="inline-block mt-4 px-4 py-2 text-white bg-[#1b1b1c] text-[#eae7e2] rounded hover:bg-[#272727] transition">
+            View on GitHub
+        </a>
 
-        <!--Project 2-->
-            <div x-data="{ open: false, slide: 0, images: [
-            'img1.jpg', 'img2.jpg', 'img3.jpg'
-            ] }" class="bg-white border rounded-xl shadow-md p-6 group mb-4">
-                <img @click="open = true" src="img1.jpg" alt="Screenshot" class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
-                <h4 class="text-xl font-bold mt-4 text-blue-700">Madhumeha</h4>
-                <p>Madhumeha is a cross-platform mobile application developed with Flutter that utilizes a TensorFlow Lite neural network model to predict the risk of diabetes based on comprehensive health and lifestyle data. The app allows users to input 39 distinct features ranging from personal and medical history to symptoms and lab test results and returns an intelligent prediction about their diabetes risk.</p>
-                <p class="text-sm text-gray-600 italic mt-1">Self-Initiated/Passion Projects </p>
-                <p class="text-sm text-gray-600">Role: Full Stack Developer, ML Engineer</p>
-
-                <!-- CTA Button -->
-                <a href="https://github.com/username/donday" target="_blank" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                    View on GitHub
-                </a>
-
-                <!-- Modal -->
-                <div
-                        x-show="open"
-                        x-transition
-                        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
-                >
-                    <div class="bg-white p-4 rounded-xl relative max-w-sm w-[90%]">
-                        <!-- Close Button -->
-                        <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl">&times;</button>
-
-                        <!-- Carousel -->
-                        <div class="relative">
-                            <img :src="images[slide]" class="w-full rounded object-contain h-[480px] max-h-[80vh]" alt="Screenshot" />
-
-                            <!-- Prev Button -->
-                            <button @click="slide = (slide - 1 + images.length) % images.length" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
-                                ◀
-                            </button>
-
-                            <!-- Next Button -->
-                            <button @click="slide = (slide + 1) % images.length" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
-                                ▶
-                            </button>
-                        </div>
-                    </div>
+        <!-- Modal Carousel -->
+        <div x-show="open" x-transition class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+            <div class="bg-gray-900 p-4 rounded-xl relative max-w-lg w-[90%]">
+                <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-white text-2xl">&times;</button>
+                <div class="relative">
+                    <img :src="images[slide]" class="w-full h-[480px] object-contain rounded">
+                    <button @click="slide = (slide - 1 + images.length) % images.length"
+                            class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600">◀</button>
+                    <button @click="slide = (slide + 1) % images.length"
+                            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600">▶</button>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!--Project 3-->
-            <div x-data="{ open: false, slide: 0, images: [
+    <!-- Project 3: Kialog -->
+    <div x-data="{ open: false, slide: 0, images: [
             'assets/img/projects/carousels/kialog/landing.png',
             'assets/img/projects/carousels/kialog/our_value.png',
             'assets/img/projects/carousels/kialog/meet_the_team.png',
@@ -163,75 +211,245 @@
             'assets/img/projects/carousels/kialog/forum_based_on_topics.png',
             'assets/img/projects/carousels/kialog/chatting.png',
             'assets/img/projects/carousels/kialog/account_settings.png',
-            ] }" class="bg-white border rounded-xl shadow-md p-6 group mb-4">
-                <img @click="open = true" src="assets/img/projects/thumbnails/KIALOG.jpg" alt="Screenshot" class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
-                <h4 class="text-xl font-bold mt-4 text-blue-700">Kialog</h4>
-                <p>Kialog is a web-based platform developed to foster peer-to-peer learning and community building among students. It features a community-driven forum and integrated chat, enabling users to ask questions, share insights, and support one another in their academic journey. Designed with a focus on simplicity and collaboration, Kialog reflects my passion for creating meaningful digital tools that solve real problems in education.
-                </p>
-                <p class="text-sm text-gray-600 italic mt-1">Team Project</p>
-                <p class="text-sm text-gray-600">Role: Full-Stack Developer (per feature)</p>
+    ] }"
+         class="bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
+        <img @click="open = true" src="assets/img/projects/thumbnails/KIALOG.jpg" alt="Donday thumbnail"
+             class="w-full h-64 object-cover rounded cursor-pointer hover:opacity-90 transition">
+        <h4 class="text-xl font-bold mt-4 text-[#1b1b1c]">Kialog</h4>
+        <p class = text-[#1b1b1c]>Kialog is a web-based platform developed to foster peer-to-peer learning and community building among students. It features a community-driven forum and integrated chat, enabling users to ask questions, share insights, and support one another in their academic journey. Designed with a focus on simplicity and collaboration, Kialog reflects my passion for creating meaningful digital tools that solve real problems in education.</p>
+        <p class="text-sm italic text-gray-600 mt-1">Team Project</p>
+        <p class="text-sm text-gray-600">Role: Full-Stack Developer (per feature)</p>
+        <a href="https://github.com/moozunch/kialog-code.git" target="_blank"
+           class="inline-block mt-4 px-4 py-2 bg-[#1b1b1c] text-[#eae7e2] rounded hover:bg-[#272727] transition">
+            View on GitHub
+        </a>
 
-                <a href="https://github.com/moozunch/kialog-code.git" target="_blank" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                    View on GitHub
-                </a>
-
-                <div
-                        x-show="open"
-                        x-transition
-                        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
-                    <div class="bg-white p-4 rounded-xl relative max-w-sm w-[90%]">
-                        <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl">&times;</button>
-
-                        <div class="relative">
-                            <img :src="images[slide]" class="w-full rounded object-contain h-[480px] max-h-[80vh]" alt="Screenshot" />
-
-                            <button @click="slide = (slide - 1 + images.length) % images.length" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
-                                ◀
-                            </button>
-                            <button @click="slide = (slide + 1) % images.length" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">
-                                ▶
-                            </button>
-                        </div>
-                    </div>
+        <!-- Modal Carousel -->
+        <div x-show="open" x-transition class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+            <div class="bg-gray-900 p-4 rounded-xl relative max-w-lg w-[90%]">
+                <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-white text-2xl">&times;</button>
+                <div class="relative">
+                    <img :src="images[slide]" class="w-full h-[480px] object-contain rounded">
+                    <button @click="slide = (slide - 1 + images.length) % images.length"
+                            class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600">◀</button>
+                    <button @click="slide = (slide + 1) % images.length"
+                            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600">▶</button>
                 </div>
             </div>
-
-            <!--Project 4-->
-            <div class="bg-white border rounded-xl shadow-md p-6 group mb-4">
-                <!-- Thumbnail -->
-                <img src="assets/img/projects/thumbnails/MODELS.jpg"
-                     alt="Screenshot"
-                     class="w-full h-64 object-cover rounded">
-                <h4 class="text-xl font-bold mt-4 text-blue-700">Diabetes Risk Predictor</h4>
-                <p>This project is the Machine Learning model for my diabetes risk predictor project MADHUMEHA. Built with Python and TensorFlow Lite.</p>
-                <p class="text-sm text-gray-600 italic mt-1">Self Initiated Project</p>
-                <p class="text-sm text-gray-600">Role: ML Engineer</p>
-
-                <a href="https://github.com/moozunch/Neural-Networks-Diabetes-Binary-Classification.git"
-                   target="_blank"
-                   class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                    View on GitHub
-                </a>
-            </div>
-
-
-
         </div>
-    </section>
+    </div>
 
+    <!-- Project 4: Diabetes Risk Prector Machine Learning Model -->
+    <div class="bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
+        <img src="assets/img/projects/thumbnails/MODELS.jpg"
+             alt="Screenshot"
+             class="w-full h-64 object-cover rounded">
+        <h4 class="text-xl font-bold mt-4 text-[#1b1b1c]">Diabetes Risk Predictor</h4>
+        <p class="text-[#1b1b1c]">This project is the Machine Learning model for my diabetes risk predictor project MADHUMEHA. Built with Python and TensorFlow Lite.</p>
+        <p class="text-sm italic text-gray-600 mt-1">Self-Initiated Project</p>
+        <p class="text-sm text-gray-600">Role: ML Engineer</p>
+        <a href="https://github.com/moozunch/Neural-Networks-Diabetes-Binary-Classification.git" target="_blank"
+           class="inline-block mt-4 px-4 py-2 bg-[#1b1b1c] text-[#eae7e2] rounded hover:bg-[#272727] transition">
+            View on GitHub
+        </a>
+    </div>
 
+</section>
 
-    <section id="contact">
-        <h3 class="text-2xl font-semibold mb-4">Contact</h3>
-        <p>Contact me at <a href="mailto:kamu@email.com" class="text-blue-600 underline">annisaheree@email.com</a></p>
-    </section>
+<footer class="bg-[#eae7e2] text-sm font-serif py-10 text-center" style="   font-family: 'Satoshi', sans-serif;">
+    <!-- Kontak Link -->
+    <div class="flex flex-wrap justify-center gap-6 mb-6 text-[#1b1b1c] text-bold">
+        <a href="https://www.instagram.com/apictoresque/" target="_blank"
+           class="group flex items-center space-x-2 hover:text-[#1b1b1c] transition-all duration-300" >
+      <span class="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-300">
+        →
+      </span>
+            <span>Instagram</span>
+        </a>
 
-</main>
+        <a href="https://github.com/moozunch" target="_blank"
+           class="group flex items-center space-x-2 hover:text-[#1b1b1c] transition-all duration-300">
+      <span class="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-300">
+        →
+      </span>
+            <span>GitHub</span>
+        </a>
 
-<!-- FOOTER -->
-<footer class="bg-gray-100 text-center py-4 mt-10 text-sm text-gray-600">
-    &copy; 2025 Annisa Putri Aprilia. All rights reserved.
+        <a href="https://www.linkedin.com/in/annisa-putri-aprilia-7070b9299/" target="_blank"
+           class="group flex items-center space-x-2 hover:text-[#1b1b1c] transition-all duration-300">
+      <span class="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-300">
+        →
+      </span>
+            <span>LinkedIn</span>
+        </a>
+
+        <a href="mailto:annisaheree@gmail.com"
+           class="group flex items-center space-x-2 hover:text-[#1b1b1c] transition-all duration-300">
+      <span class="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-300">
+        →
+      </span>
+            <span>Email</span>
+        </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="italic text-xs text-[#1b1b1c]" style="font-family: 'Playfair Display', serif; font-style: italic;">>
+        Intellectual property of <span class="text-gray-700">Annisa</span>. Reproduction or redistribution is prohibited without explicit permission.
+        <br class="hidden md:block" />
+        © 2025 All Rights Reserved.
+    </div>
 </footer>
 
+
+
 </body>
+<script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(".line", {
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top 80%",
+            toggleActions: "play reverse play reverse"
+        },
+        width: "100%",
+        duration: 1,
+        ease: "power2.out"
+    });
+
+</script>
+
+<script>
+    gsap.from(".animated-heading", {
+        opacity: 0,
+        y: 60,
+        duration: 1.2,
+        ease: "power4.out"
+    });
+
+    gsap.from(".hero-text span", {
+        opacity: 0,
+        y: 30,
+        duration: 1.2,
+        ease: "power4.out",
+        stagger: 0.2
+    });
+
+    // Scroll animation for next sections
+    gsap.from("#about", {
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top 80%",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+    });
+</script>
+
+<script>
+    document.body.classList.add("loading");
+
+    // Animasi masuk tulisan loading
+    gsap.to("#loader-heading", {
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
+    });
+
+    // Setelah delay, hilangkan loader dan tampilkan halaman
+    setTimeout(() => {
+        gsap.to("#loader", {
+            opacity: 0,
+            duration: 1,
+            onComplete: () => {
+                document.getElementById("loader").style.display = "none";
+                document.body.classList.remove("loading");
+            }
+        });
+    }, 800); //0,8s
+</script>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to("#about-text", {
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top 80%", // saat elemen mulai masuk ke view
+            toggleActions: "play none none none",
+        },
+        opacity: 1,
+        y: -30,
+        duration: 1.5,
+        ease: "power3.out"
+    });
+</script>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Split characters and wrap in spans
+    const textContainer = document.getElementById("about-text");
+    const spans = textContainer.querySelectorAll("span");
+    spans.forEach(span => {
+        const chars = span.textContent.split("");
+        span.innerHTML = "";
+        chars.forEach(char => {
+            const charSpan = document.createElement("span");
+            charSpan.textContent = char === " " ? "\u00A0" : char;
+            charSpan.classList.add("char");
+            span.appendChild(charSpan);
+        });
+    });
+
+    // inisialisasi warna gray teks
+    const style = document.createElement("style");
+    style.innerHTML = `
+  .char {
+    color: #4b5563; /* gray-600 */
+    display: inline-block;
+    white-space: pre;
+  }
+`;
+    document.head.appendChild(style);
+
+    // pinning the about section biar stay sampai selesai terfill
+    ScrollTrigger.create({
+        trigger: "#about",
+        start: "top top",
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+    });
+
+    // animating each character's color
+    gsap.to(".char", {
+        color: "#1b1b1c",
+        stagger: {
+            each: 0.005,
+            from: "start"
+        },
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top top",
+            end: "+=1000",
+            scrub: true
+        }
+    });
+
+</script>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('en-US', { hour12: false });
+        document.getElementById('clock').textContent = time;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+
 </html>
