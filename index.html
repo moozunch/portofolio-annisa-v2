@@ -13,8 +13,8 @@
         body {
             font-family: 'Satoshi', sans-serif;
             overflow: auto;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
             scroll-behavior: smooth;
         }
 
@@ -59,44 +59,68 @@
     </nav>
 </header>
 
-<!-- HERO -->
-<section id="hero" class="bg-[#eae7e2] text-[#1b1b1c] py-16 px-56 mt-16 mx-24">
+<section id="hero" class="relative bg-[#eae7e2] text-[#1b1b1c] px-12 sm:px-8 md:px-20 lg:px-60 mx-auto">
+    <!-- SVG Line Arrow -->
+    <svg id="arrow-svg" class="w-full h-auto" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ff6ec4" />
+                <stop offset="100%" stop-color="#7873f5" />
+            </linearGradient>
+        </defs>
+        <path id="arrow-path"
+              d="M 50 150 Q 400 -50 750 150"
+              fill="none"
+              stroke="url(#gradient)"
+              stroke-width="4"
+              stroke-linecap="round" />
+    </svg>
+
     <!-- Heading -->
-    <div class="text-left mb-12">
-        <h1 class="hero-text text-4xl md:text-5xl text-[#1b1b1c]">
-            <span class="text-6xl text-bold" >Hi</span> I'm <span style="font-family: 'Playfair Display', serif; font-style: italic;">Annisa Putri Aprilia</span>,
-            <br class="hidden md:block" />
+    <div class="text-left mb-12 ml-0 md:ml-16">
+        <h1 class="hero-text text-3xl sm:text-4xl md:text-5xl text-[#1b1b1c] leading-tight">
+            <span class="text-5xl md:text-6xl font-bold">Hi, </span>I'm
+            <span class="font-serif italic">Annisa Putri Aprilia, </span>
+            <svg id="star-spin" class="inline-block w-5 h-5 md:w-6 md:h-6 ml-2" viewBox="0 0 24 24" fill="url(#star-gradient)">
+                <defs>
+                    <linearGradient id="star-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff6ec4" />
+                        <stop offset="100%" stop-color="#7873f5" />
+                    </linearGradient>
+                </defs>
+                <path d="M12 2l2.39 7.26H22l-5.8 4.22L17.59 22 12 17.77 6.41 22l1.39-8.52L2 9.26h7.61z" />
+            </svg>
         </h1>
-        <h2 class="text-xl text-[#1b1b1c]" >
-            > a passionate junior developer with interest in
-            <span style="font-family: 'Playfair Display', serif; font-style: italic;">Machine Learning</span>
+        <h2 class="text-base sm:text-lg md:text-xl mt-4">
+            a passionate junior developer with interest in
+            <span class="font-serif italic">Machine Learning</span>
             and
-            <span style="font-family: 'Playfair Display', serif; font-style: italic;">Software Development</span>
+            <span class="font-serif italic">Software Development</span>
         </h2>
     </div>
 
     <!-- Grid Content -->
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-16">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start mt-12 ml-0 md:ml-16">
         <!-- Left: Profile & Bio -->
-        <div class="flex items-start gap-6">
+        <div class="flex flex-col sm:flex-row items-start gap-6">
             <!-- Profile Image -->
-            <img src="assets/img/profile.png" alt="Profile" class="w-24 h-24 md:w-28 md:h-28 rounded-full border-4 border-[#1b1b1c] shadow-lg" />
+            <img src="assets/img/profile.png" alt="Profile" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-[#1b1b1c] shadow-lg" />
 
             <!-- Biography Text -->
             <div>
-                <h2 class="text-xl mb-2" >Motivation</h2>
-                <p class="text-gray-800 leading-relaxed" style="font-family: 'Playfair Display', serif; font-style: italic;">
-                    what's done in the <span class="text-blue-700"> dark </span> will find a way to <span class="text-green-700"> shine </span>
+                <h2 class="text-lg sm:text-xl mb-2">Motivation</h2>
+                <p class="text-gray-800 leading-relaxed font-serif italic">
+                    what's done in the <span class="text-blue-700">dark</span> will find a way to <span class="text-green-700">shine</span>
                 </p>
-                <div class="font-serif italic text-[#1b1b1c] text-lg" >
-                    <span>Jakarta, Indonesia — <span id="clock">00:00:00</span></span>
+                <div class="font-serif italic text-[#1b1b1c] text-sm sm:text-base mt-2">
+                    Jakarta, Indonesia — <span id="clock">00:00:00</span>
                 </div>
             </div>
         </div>
 
         <!-- Right: Social Media -->
-        <div class="md:text-right text-left pr-24">
-            <h2 class="text-xl mb-4" >Let's connect</h2>
+        <div class="text-left md:text-right pr-0 md:pr-24 mt-8 md:mt-0">
+            <h2 class="text-lg sm:text-xl mb-4">Let's connect</h2>
             <div class="flex md:justify-end gap-6">
                 <a href="https://www.instagram.com/apictoresque/" class="text-[#1b1b1c] hover:text-pink-400">
                     <i class="fab fa-instagram text-2xl"></i>
@@ -114,16 +138,18 @@
 
 
 
+
+
 <!-- ABOUT -->
 <section id="about" class="min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-40">
     <div class="relative inline-block mb-6">
         <h3 class="text-6xl text-[#1b1b1c] py-10 text-semibold">About Me</h3>
     </div>
     <p class="about-text leading-relaxed text-4xl md:text-4xl opacity-0 px-10" id="about-text" style="font-family: 'Playfair Display', serif; font-style: italic;">
-        <span>A spark ignites the idea, but it's the feeling that brings it to life-</span>
-        <span>I gave up on a dream of being a medical student to pursue  Computer Science, </span>
-        <span>but my vision stays the same.</span>
-        <span>To create     efficient tools and save lives.</span>
+        <span>A spark ignites the idea, but it's the feeling that brings it to life</span>
+        <span>Traded my dream of wearing a white coat</span>
+        <span>for lines of code &  endless logic.</span>
+        <span>But the mission remains the same, to craft solutions that heal, empower, and save lives.</span>
     </p>
 </section>
 
@@ -154,14 +180,14 @@
         <p class="text-sm italic text-gray-600 mt-1">🏆 3rd Place - DSC Solve 2024</p>
         <p class="text-sm text-gray-600">Role: UI/UX Designer & Front-End Developer</p>
         <a href="https://github.com/moozunch/donday" target="_blank"
-           class="inline-flex items-center gap-1 text-sm text-[#1b1b1c] mt-2 group transition-all duration-300">
+           class="inline-flex mt-4 px-4 py-2 bg-[#272727] text-[#eae7e2] rounded hover:bg-[#1b1b1c]] items-center text-sm group transition-all duration-300 ease-in-out pr-0 hover:pr-4 gap-2">
             View on GitHub
-            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-1 transform transition-all duration-300">→</span>
+            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transform transition-all duration-300">→</span>
         </a>
 
         <!-- Modal Carousel -->
         <div x-show="open" x-transition class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
-            <div class="bgbg-[#eae7e2] p-4 rounded-xl relative max-w-lg w-[90%]">
+            <div class="bg-[#eae7e2] p-4 rounded-xl relative max-w-lg w-[90%]">
                 <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-white text-2xl">&times;</button>
                 <div class="relative">
                     <img :src="images[slide]" class="w-full h-[480px] object-contain rounded">
@@ -176,7 +202,6 @@
 
     <!-- Project 2: Madhumeha -->
     <div x-data="{ open: false, slide: 0, images: [
-    'assets/img/projects/carousels/donday/login.jpg', 'assets/img/projects/carousels/donday/forum.jpg', 'assets/img/projects/carousels/donday/chat.jpg'
     ] }"
          class="project-card bg-[#eae7e2] border border-gray-700 rounded-xl shadow p-6 mb-6 max-w-4xl mx-auto">
         <img @click="open = true" src="assets/img/projects/thumbnails/DONDAY.jpg" alt="Donday thumbnail"
@@ -185,11 +210,13 @@
         <p class="text-[#1b1b1c]">Madhumeha is a cross-platform mobile application developed with Flutter that utilizes a TensorFlow Lite neural network model to predict the risk of diabetes based on comprehensive health and lifestyle data. The app allows users to input 39 distinct features ranging from personal and medical history to symptoms and lab test results and returns an intelligent prediction about their diabetes risk.</p>
         <p class="text-sm italic text-gray-600 mt-1">Self-Initiated/Passion Projects </p>
         <p class="text-sm text-gray-600">Role: Full Stack Developer, ML Engineer</p>
-        <a href="https://github.com/moozunch/donday" target="_blank"
-           class="inline-flex items-center gap-1 text-sm text-[#1b1b1c] mt-2 group transition-all duration-300">
+        <a href="https://github.com/moozunch/madhumeha" target="_blank"
+           class="inline-flex mt-4 px-4 py-2 bg-[#272727] text-[#eae7e2] rounded hover:bg-[#1b1b1c]] items-center text-sm group transition-all duration-300 ease-in-out pr-0 hover:pr-4 gap-2">
             View on GitHub
-            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-1 transform transition-all duration-300">→</span>
+            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transform transition-all duration-300">→</span>
         </a>
+
+
 
         <!-- Modal Carousel -->
         <div x-show="open" x-transition class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
@@ -224,9 +251,9 @@
         <p class="text-sm italic text-gray-600 mt-1">Team Project</p>
         <p class="text-sm text-gray-600">Role: Full-Stack Developer (per feature)</p>
         <a href="https://github.com/moozunch/kialog-code.git" target="_blank"
-           class="inline-flex items-center gap-1 text-sm text-[#1b1b1c] mt-2 group transition-all duration-300">
+           class="inline-flex mt-4 px-4 py-2 bg-[#272727] text-[#eae7e2] rounded hover:bg-[#1b1b1c]] items-center text-sm group transition-all duration-300 ease-in-out pr-0 hover:pr-4 gap-2">
             View on GitHub
-            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-1 transform transition-all duration-300">→</span>
+            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transform transition-all duration-300">→</span>
         </a>
 
         <!-- Modal Carousel -->
@@ -254,9 +281,9 @@
         <p class="text-sm italic text-gray-600 mt-1">Self-Initiated Project</p>
         <p class="text-sm text-gray-600">Role: ML Engineer</p>
         <a href="https://github.com/moozunch/Neural-Networks-Diabetes-Binary-Classification.git" target="_blank"
-           class="inline-flex items-center gap-1 text-sm text-[#1b1b1c] mt-2 group transition-all duration-300">
+           class="inline-flex mt-4 px-4 py-2 bg-[#272727] text-[#eae7e2] rounded hover:bg-[#1b1b1c]] items-center text-sm group transition-all duration-300 ease-in-out pr-0 hover:pr-4 gap-2">
             View on GitHub
-            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-1 transform transition-all duration-300">→</span>
+            <span class="inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transform transition-all duration-300">→</span>
         </a>
     </div>
 
@@ -299,7 +326,7 @@
     </div>
 
     <!-- Copyright -->
-    <div class="italic text-xs text-[#1b1b1c]" style="font-family: 'Playfair Display', serif; font-style: italic;">>
+    <div class="italic text-xs text-[#1b1b1c] px-8" style="font-family: 'Playfair Display', serif; font-style: italic;">
         Intellectual property of <span class="text-gray-700">Annisa</span>. Reproduction or redistribution is prohibited without explicit permission.
         <br class="hidden md:block" />
         © 2025 All Rights Reserved.
@@ -313,35 +340,20 @@
 <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
 
 <script>
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(".line", {
-        scrollTrigger: {
-            trigger: "#about",
-            start: "top 80%",
-            toggleActions: "play reverse play reverse"
-        },
-        width: "100%",
-        duration: 1,
-        ease: "power2.out"
-    });
-
-</script>
-
-<script>
-    gsap.from(".animated-heading", {
-        opacity: 0,
-        y: 60,
-        duration: 1.2,
-        ease: "power4.out"
-    });
-
-    gsap.from(".hero-text span", {
-        opacity: 0,
-        y: 30,
-        duration: 1.2,
-        ease: "power4.out",
-        stagger: 0.2
-    });
+    // gsap.from(".animated-heading", {
+    //     opacity: 0,
+    //     y: 60,
+    //     duration: 1.2,
+    //     ease: "power4.out"
+    // });
+    //
+    // gsap.from(".hero-text span", {
+    //     opacity: 0,
+    //     y: 30,
+    //     duration: 1.2,
+    //     ease: "power4.out",
+    //     stagger: 0.2
+    // });
 
     // Scroll animation for next sections
     gsap.from("#about", {
@@ -351,7 +363,7 @@
         },
         y: 60,
         opacity: 0,
-        duration: 1,
+        duration: 2,
         ease: "power2.out"
     });
 </script>
@@ -397,41 +409,47 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // Split characters and wrap in spans
     const textContainer = document.getElementById("about-text");
     const spans = textContainer.querySelectorAll("span");
+
     spans.forEach(span => {
-        const chars = span.textContent.split("");
+        const words = span.textContent.trim().split(/\s+/);
         span.innerHTML = "";
-        chars.forEach(char => {
-            const charSpan = document.createElement("span");
-            charSpan.textContent = char === " " ? "\u00A0" : char;
-            charSpan.classList.add("char");
-            span.appendChild(charSpan);
+
+        words.forEach((word, wordIndex) => {
+            const wordSpan = document.createElement("span");
+            wordSpan.style.whiteSpace = "nowrap";
+
+            [...word].forEach(char => {
+                const charSpan = document.createElement("span");
+                charSpan.textContent = char;
+                charSpan.classList.add("char");
+                wordSpan.appendChild(charSpan);
+            });
+
+            // Add space after each word (except the last)
+            if (wordIndex < words.length - 1) {
+                const spaceSpan = document.createElement("span");
+                spaceSpan.textContent = "\u00A0"; // Non-breaking space
+                spaceSpan.classList.add("char");
+                wordSpan.appendChild(spaceSpan);
+            }
+
+            span.appendChild(wordSpan);
         });
     });
 
-    // inisialisasi warna gray teks
+    // gray initial state
     const style = document.createElement("style");
     style.innerHTML = `
-  .char {
-    color: #9ca3af; /* gray-400 */
-    display: inline-block;
-    white-space: pre;
-  }
-`;
+        .char {
+            color: #9ca3af; /* gray-400 */
+            display: inline-block;
+        }
+    `;
     document.head.appendChild(style);
 
-    // pinning the about section biar stay sampai selesai terfill
-    ScrollTrigger.create({
-        trigger: "#about",
-        start: "top top",
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-    });
-
-    // animating each character's color
+    // animate characters on scroll
     gsap.to(".char", {
         color: "#1b1b1c",
         stagger: {
@@ -441,12 +459,22 @@
         scrollTrigger: {
             trigger: "#about",
             start: "top top",
-            end: "+=1000",
+            end: "+=1000", // Can be made dynamic if needed
             scrub: true
         }
     });
 
+    // pinning the about section during scroll
+    ScrollTrigger.create({
+        trigger: "#about",
+        start: "top top",
+        end: "+=1000",
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+    });
 </script>
+
 
 <script>
     function updateClock() {
@@ -504,6 +532,67 @@
     });
 </script>
 
+
+<script>
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    const split = new SplitText("#hero-text", {
+        type: "chars",
+        charsClass: "char"
+    });
+
+    gsap.from(split.chars, {
+        yPercent: 100,
+        opacity: 0,
+        ease: "power4.out",
+        stagger: 0.05,
+        scrollTrigger: {
+            trigger: "#hero",
+            start: "top 70%",
+            toggleActions: "play none none none"
+        }
+    });
+</script>
+
+<script type="module">
+    import { gsap } from "https://cdn.skypack.dev/gsap";
+
+    const path = document.getElementById("arrow-path");
+    const length = path.getTotalLength();
+
+    gsap.set(path, {
+        strokeDasharray: length,
+        strokeDashoffset: length
+    });
+
+    const tl = gsap.timeline({ repeat: -1 });
+
+    // Step 1: Draw left to right
+    tl.to(path, {
+        strokeDashoffset: 0,
+        duration: 2,
+        ease: "power2.inOut"
+    });
+
+    // Step 2: Undraw from right to left
+    tl.to(path, {
+        strokeDashoffset: -length,
+        duration: 2,
+        ease: "power2.inOut"
+    });
+</script>
+
+<script type="module">
+    import { gsap } from "https://cdn.skypack.dev/gsap";
+
+    gsap.to("#star-spin", {
+        rotate: 360,
+        duration: 5,
+        repeat: -1,
+        ease: "linear",
+        transformOrigin: "50% 50%"
+    });
+</script>
 
 
 </html>
