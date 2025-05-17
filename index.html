@@ -567,14 +567,14 @@
 
     const tl = gsap.timeline({ repeat: -1 });
 
-    // Step 1: Draw left to right
+    // Draw left to right
     tl.to(path, {
         strokeDashoffset: 0,
         duration: 2,
         ease: "power2.inOut"
     });
 
-    // Step 2: Undraw from right to left
+    // Undraw from right to left
     tl.to(path, {
         strokeDashoffset: -length,
         duration: 2,
